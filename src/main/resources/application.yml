@@ -1,0 +1,24 @@
+Spring:
+  application:
+    name: tlias
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.111.128:3306/tlias
+    username: czx
+    password: czx
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+aliyun:
+  oss:
+    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: LTAI5tAofhws48aFcp7mD6Em
+    accessKeySecret: kZq8u4IMzsJ0Dt0tMUKce5Ml9M1Vje
+    bucketName: chan-tlias
+#spring事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
