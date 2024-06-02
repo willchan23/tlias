@@ -34,6 +34,6 @@ public class LoginController {
 
         //登录失败，返回错误信息
 //        return e != null?Result.success():Result.error("用户名或密码错误");
-        return Result.error("用户名或密码错误");
+        return Result.error("用户名或密码错误呀！");
     }
 }
