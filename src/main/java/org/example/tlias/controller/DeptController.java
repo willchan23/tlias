@@ -1,6 +1,7 @@
 package org.example.tlias.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.tlias.anno.MyLog;
 import org.example.tlias.pojo.Dept;
 import org.example.tlias.pojo.Result;
 import org.example.tlias.service.DeptService;
@@ -12,6 +13,8 @@ import java.util.List;
 @Slf4j
 @RestController
 public class DeptController {
+    @Autowired
+    private DeptService deptService;
 //    @RequestMapping(value = "/depts",method = RequestMethod.GET) 也可以
     @GetMapping("/depts")
     public Result list(){
@@ -21,29 +24,26 @@ public class DeptController {
         List<Dept> deptList =  deptService.list();
         return Result.success(deptList);
     }
-
+    @MyLog
     @DeleteMapping("/depts/{id}")
     public Result delete(@PathVariable Integer id){
         log.info("根据id删除部门{}",id);
         deptService.delete(id);
         return Result.success();
     }
-
+    @MyLog
     @PostMapping("/depts")
     public Result add(@RequestBody Dept dept){
         log.info("新增部门：{}",dept);
         deptService.add(dept);
         return Result.success();
     }
-
+    @MyLog
     @PutMapping("/depts")
     public Result edit(@RequestBody Dept dept){
         log.info("编辑部门：{}",dept);
         deptService.edit(dept);
         return Result.success();
     }
-
-    @Autowired
-    private DeptService deptService;
 }
 //@RestController 会将返回result结果处理成json格式的数据

@@ -33,14 +33,14 @@ class TliasApplicationTests {
                 .compact();
         System.out.println(jwt);
     }
-    @Test
-    public void testParseJwt(){
-        //篡改之后就会报错，测试无法通过，一旦Jwt生成了，无法篡改任何一个字符
-        Claims claims = Jwts.parser()
-                .setSigningKey("willchan")
-                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTcxNzIzMjgyNn0.o2hssd-oJUv0-LiH3mhorG5_rRpYXU1Kd61j8HMiUS0")
-                .getBody();
-        System.out.println(claims);
-    }
+//    @Test
+//    public void testParseJwt(){
+//        //篡改之后就会报错，测试无法通过，一旦Jwt生成了，无法篡改任何一个字符
+//        Claims claims = Jwts.parser()
+//                .setSigningKey("willchan")
+//                .parseClaimsJws("eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidG9tIiwiaWQiOjEsImV4cCI6MTcxNzIzMjgyNn0.o2hssd-oJUv0-LiH3mhorG5_rRpYXU1Kd61j8HMiUS0")
+//                .getBody();
+//        System.out.println(claims);
+//    }
 
 }

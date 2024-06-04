@@ -36,7 +36,7 @@ public class DeptServiceImpl implements DeptService {
         try {
             //删除部门
             deptMapper.deleteById(id);
-            int i = 1 / 0;//触发异常
+//            int i = 1 / 0;//触发异常
             //删除部门下的员工
             empMapper.deleteByDeptId(id);
         }finally {

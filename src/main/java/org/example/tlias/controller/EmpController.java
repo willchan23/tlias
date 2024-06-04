@@ -2,6 +2,7 @@ package org.example.tlias.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
+import org.example.tlias.anno.MyLog;
 import org.example.tlias.pojo.Emp;
 import org.example.tlias.pojo.PageBean;
 import org.example.tlias.pojo.Result;
@@ -39,31 +40,32 @@ public class EmpController {
         return Result.success(pageBean);
     }
 
+    @MyLog
     @DeleteMapping("/emps/{ids}")
-    public Result delete(@PathVariable List<Integer> ids){
+    public Result delete(@PathVariable List<Integer> ids) {
         log.info("批量删除：{}", ids);
         empService.delete(ids);
         return Result.success();
     }
-
+    @MyLog
     @PostMapping("/emps")
 //    参数格式：json
-    public Result save(@RequestBody Emp emp){
+    public Result save(@RequestBody Emp emp) {
         log.info("添加员工：{}", emp);
         empService.save(emp);
         return Result.success();
     }
 
     @GetMapping("/emps/{id}")
-    public Result getById(@PathVariable Integer id){
+    public Result getById(@PathVariable Integer id) {
         log.info("查询信息：{}", id);
         Emp emp = empService.getById(id);
         return Result.success(emp);
     }
-
+    @MyLog
     @PutMapping("/emps")
-    public Result update(@RequestBody Emp emp){
-        log.info("更新员工：{}",emp);
+    public Result update(@RequestBody Emp emp) {
+        log.info("更新员工：{}", emp);
         empService.update(emp);
         return Result.success();
     }
